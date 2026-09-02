@@ -37,7 +37,7 @@ EMOJIS = {
         "dikastiko": "<:dikastiko:1542816015392444426>",
         "staff": "<:staff:1542759389793099837>",
         "manager": "<:manager:1542759500405149777>",
-        "criminal": "<:criminal:1542816217591713913>",
+        "criminal": "<a:criminal:1544778079480709241>",
         "accept": "<:accept:1542500013383618640>",
         "deny": "<:deny:1542499989312503878>",
         "send": "<:send:1542500013383618640>",
