@@ -28,7 +28,6 @@ COGS = [
     "cogs.panel_command",
     "cogs.invite_tracking",
     "cogs.giveaways",
-    "cogs.warnings",
     "cogs.bot_status",
     "cogs.join_ping",
     "cogs.whitelist",
