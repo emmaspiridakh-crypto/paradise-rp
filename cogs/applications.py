@@ -73,6 +73,8 @@ class Applications(commands.Cog):
         }
 
         for key, data in config.APPLICATION_TYPES.items():
+            if key == "criminal":
+                continue  # Το criminal έχει το δικό του ξεχωριστό panel — δες /panel-criminal-application
             info = _app_info.get(key, {"description": "", "emoji_key": "apply"})
             raw_emoji = emoji("applications", info["emoji_key"])
             locked = _is_locked(key)
@@ -87,6 +89,45 @@ class Applications(commands.Cog):
             )
             add_section_with_button(container, text=text, button=apply_btn)
             add_separator(container)
+
+        view = ui.LayoutView(timeout=None)
+        view.add_item(container)
+        await interaction.channel.send(view=view)
+        await interaction.response.send_message("Στάλθηκε.", ephemeral=True)
+
+    @app_commands.command(name="panel-criminal-application", description="Στέλνει το ξεχωριστό Criminal Applications panel")
+    @app_commands.checks.has_any_role(config.OWNERSHIP_ROLE_ID)
+    async def panel_criminal_application(self, interaction: discord.Interaction):
+        locked = _is_locked("criminal")
+        role_mention = f"<@&{config.CRIMINAL_MANAGER_ROLE_ID}>"
+
+        container = ui.Container(accent_colour=discord.Colour.from_str("#593695"))
+        container.add_item(ui.TextDisplay(
+            f"## 🔪 CRIMINAL TEAM APPLICATION\n"
+            f"Θέλεις να γίνεις μέλος μιας εγκληματικής ομάδας στο Paradise Roleplay;\n"
+            f"Συμπλήρωσε την αίτηση και δείξε μας τι αξίζει η ομάδα σου!\n"
+            f"Υπεύθυνοι: {role_mention}"
+        ))
+        if config.CRIMINAL_APPLICATIONS_BANNER_URL:
+            container.add_item(ui.MediaGallery(discord.MediaGalleryItem(media=config.CRIMINAL_APPLICATIONS_BANNER_URL)))
+        add_separator(container)
+
+        questions_count = len(config.APPLICATION_TYPES["criminal"]["questions"])
+        status_dot = emoji("applications", "status_closed") if locked else emoji("applications", "status_open")
+        status_text = "κλειστές" if locked else "ανοιχτές"
+        container.add_item(ui.TextDisplay(
+            f"Πάτησε το κουμπί για να ξεκινήσεις την αίτησή σου.\n"
+            f"Θα χρειαστεί να απαντήσεις σε {questions_count} ερωτήσεις σχετικά με την ομάδα σου.\n\n"
+            f"{status_dot} Αιτήσεις **{status_text}**"
+        ))
+        apply_btn = ui.Button(
+            label="Criminal Apply", style=discord.ButtonStyle.secondary,
+            emoji=emoji("applications", "criminal"), disabled=locked,
+            custom_id="app_apply:criminal",
+        )
+        add_action_row(container, apply_btn)
+        add_separator(container)
+        container.add_item(ui.TextDisplay("-# Οι αιτήσεις εξετάζονται από τους υπεύθυνους. Καλή τύχη!"))
 
         view = ui.LayoutView(timeout=None)
         view.add_item(container)
