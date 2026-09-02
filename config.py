@@ -24,7 +24,6 @@ GENERAL_MANAGER_ID = 1542284878807040113
 APPLICATION_ACCEPTED_ROLES = {
     "staff": 1542284878769291303  , 
     "manager":  1542284878769291303,  
-    "criminal": 1542284878769291303 ,
 }
 
 APPLICATION_REVIEW_ROLES = {
@@ -45,11 +44,11 @@ TICKET_SUPPORT_THUMBNAIL_URL = "https://i.imgur.com/TOo1WCC.png"
 
 CAT_TICKET_OWNERSHIP_ID = 1542284882028273793
 CAT_TICKET_SUPPORT_ID   = 1542284881801904215
-CAT_TICKET_ANTICHEAT_ID = 1542284881801904216
-CAT_TICKET_REWARD_ID    = 1542553074961485884
-CAT_TICKET_REPORT_STAFF_ID = 1542284879255838806
-CAT_TICKET_REPORT_MANAGER_ID = 1542284879255838805
-CAT_TICKET_REPORT_OWNERSHIP_ID = 1542284879255838804
+CAT_TICKET_ANTICHEAT_ID = 1544775231409889330
+CAT_TICKET_REWARD_ID    = 1544775054783545454
+CAT_TICKET_REPORT_STAFF_ID = 1544775360565084210
+CAT_TICKET_REPORT_MANAGER_ID = 1544775360565084210
+CAT_TICKET_REPORT_OWNERSHIP_ID = 1544775360565084210
 
 REPORT_PANEL_BANNER_URL = "https://i.imgur.com/qaCEDaG.jpeg"
 CAT_JOBS_ID = 1542284882028273787
@@ -112,14 +111,6 @@ APPLICATIONS_BANNER_URL = "https://i.imgur.com/lzDSDeT.jpeg"
 
 LOG_GIVEAWAY_CHANNEL_ID =  1542284879927050340
 GIVEAWAY_BANNER_URL = "https://i.imgur.com/qaCEDaG.jpeg" 
-
-LOG_WARN_CHANNEL_ID = 1542284880132448276
-WARN_ANNOUNCE_CHANNEL_ID =  1542284880514256935
-
-WARN_ROLE_1_ID = 1542284878790271029
-WARN_ROLE_2_ID =   1542284878790271028
-WARN_ROLE_3_ID =  1542284878777811055
-
 
 WHITELIST_CATEGORY_ID = 1542284879255838807           
 LOG_WHITELIST_CHANNEL_ID = 1542284880132448282         
@@ -254,12 +245,14 @@ APPLICATION_TYPES = {
             "Απο ποιόν Server έρχεστε, πόσο καιρό παίζατε και γιατί φύγατε?",
             "Τι σας έκανε να επιλέξετε τον Server μας, ώστε να παίξετε Criminal RP?",
             "Είχατε ποτέ ξανά Criminal Team στον Server μας? Αν ναι γιατι το αφήσατε?",
-            "Πόσο ενεργοί θεωρείτε μπορείτε να είστε εφόσον πάρετε την ομάδα?"
-            "Είναι σίγουρο πως θα παίζετε με το Job?"
-            "Θέλετε να συμπληρώσετε κάτι?"
+            "Πόσο ενεργοί θεωρείτε μπορείτε να είστε εφόσον πάρετε την ομάδα?",
+            "Είναι σίγουρο πως θα παίζετε με το Job?",
+            "Θέλετε να συμπληρώσετε κάτι?",
         ],
     },
 }
+
+CRIMINAL_APPLICATIONS_BANNER_URL = "https://i.imgur.com/qaCEDaG.jpeg"
 
 EMBED_COLOR = int(os.getenv("EMBED_COLOR", "0x9b59b6"), 16)
 
